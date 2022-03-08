@@ -1,0 +1,22 @@
+version: "3"
+services:
+
+  server:
+    container_name: diploma-back
+    build: back/
+    ports:
+      - 80:80
+
+  front:
+    container_name: diploma-front
+    build: front/
+    ports:
+      - 3000:3000
+
+  postgres:
+    image: postgres
+    container_name: diploma-postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
